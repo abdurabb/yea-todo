@@ -49,15 +49,14 @@ function TaskCard({ task, onToggle, onEdit, onDelete }) {
               )}
             </div>
           </div>
-  
-          <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-            <button
-              onClick={() => onDelete(task._id)}
-              className="p-2 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
-            >
-              <Trash2 className="w-4 h-4" />
-            </button>
-          </div>
+            <div>
+              <button
+                 onClick={() => onDelete(task._id)}
+                className="  p-2 rounded-lg text-red-600 hover:bg-blue-50 transition-colors"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </div>
         </div>
       </div>
     );
