@@ -5,7 +5,7 @@ const { handleError } = require('../handler/handleError.js')
 
 const getTasks = async (req, res) => {
     try {
-        let query = {}
+        let query = {userId: req.userId}
         const page = req.query.page || 1
         const limit = req.query.limit || 10
         const { search, status, group, priority } = req.query
