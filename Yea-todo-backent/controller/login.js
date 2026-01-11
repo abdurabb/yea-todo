@@ -17,6 +17,8 @@ const Login = async (req, res) => {
             return res.status(200).json({ success: true, message: 'Login successful', token,isLogin:true })
         } else {
             if (!name) { return res.status(400).json({ success: false, message: 'Name is required' }) }
+            const user = await User.findOne({ email })
+            if (user) { return res.status(400).json({ success: false, message: 'User already registered' }) }
             const hashedPassword = await bcrypt.hash(password, 10)
             await User.create({ name, email, password: hashedPassword })
             return res.status(200).json({ success: true, message: 'User created successfully',isLogin:false })
